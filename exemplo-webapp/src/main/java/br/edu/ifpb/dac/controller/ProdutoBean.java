@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import br.edu.ifpb.dac.domain.Produto;
 import br.edu.ifpb.dac.sessionbean.ProdutoService;

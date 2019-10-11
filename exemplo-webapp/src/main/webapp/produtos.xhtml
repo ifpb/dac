@@ -8,7 +8,10 @@
 </h:head>
 <h:body>
 	<h:panelGroup id="listaProdutos">
+		
 		<h1>Lista de Produtos</h1>
+
+		<h2>Olá, #{sessionScope.usuarioLogado}.</h2>
 
 		<h:dataTable var="produto" value="#{produtoBean.produtos}">
 			<h:column>
