@@ -1,12 +1,13 @@
 package br.edu.ifpb.dac.controller;
 
-import br.edu.ifpb.dac.sessionbean.LoginService;
-
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
+import br.edu.ifpb.dac.sessionbean.LoginService;
 
 @ManagedBean
 @RequestScoped
@@ -21,7 +22,8 @@ public class FormLoginBean {
     public String efetuarLogin() {
         boolean usuarioLogado = loginService.checarCredenciais(login, senha);
         if (usuarioLogado) {
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuarioLogado", login);
+        	HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+            session.setAttribute("usuarioLogado", login);
             return "produtos.xhtml";
         } else {
             FacesMessage message = new FacesMessage("Falha na autenticação", "Login ou senha inválidos");
