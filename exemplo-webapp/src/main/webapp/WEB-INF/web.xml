@@ -22,4 +22,17 @@ version="3.1">
             30
         </session-timeout>
     </session-config>
+    <data-source>
+		<name>java:global/DACDataSource</name>
+		<class-name>org.postgresql.ds.PGSimpleDataSource</class-name>
+ 	    <server-name>${ENV=DB_HOST}</server-name>
+	    <port-number>5432</port-number>
+ 	    <database-name>${ENV=DB_NAME}</database-name>
+ 	    <user>${ENV=DB_USER}</user>
+ 	    <password>${ENV=DB_PASSWORD}</password>
+		<property>
+			<name>fish.payara.sql-trace-listeners</name>
+			<value>com.sun.gjc.util.SQLTraceLogger</value>
+		</property>
+	</data-source>
 </web-app>

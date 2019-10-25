@@ -8,10 +8,14 @@ services:
      - "$HOME/docker/volumes/postgres:/var/lib/postgresql/data"
     environment:
       POSTGRES_PASSWORD: secret
-  payara:
-    image: ifpb/payara:latest
+  exemplo-webapp:
+    image: ifpbcjz/dac/exemplo-webapp:0.0.2-SNAPSHOT
     ports:
       - "8080:8080"
-      - "4848:4848"
-    volumes:
-      - "~/payara/apps:/opt/payara/deployments"
+    environment:
+      - DB_HOST=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=secret
+      - DB_NAME=dac
+    depends_on:
+      - postgres

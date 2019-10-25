@@ -5,12 +5,14 @@
 	<groupId>br.edu.ifpb.dac</groupId>
 	<artifactId>exemplo-webapp</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>exemplo-webapp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<dockerfile-maven-version>1.4.13</dockerfile-maven-version>
+		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -25,18 +27,36 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.8</version>
+		</dependency>
 	</dependencies>
 	<build>
-		<finalName>exemplo-webapp</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.2.3</version>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>${dockerfile-maven-version}</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
-					<webappDirectory>src/main/webapp</webappDirectory>
+					<repository>docker.io/ifpbcjz/dac/exemplo-webapp</repository>
+					<tag>${project.version}</tag>
+					<buildArgs>
+						<JAR_FILE>${project.build.finalName}.war</JAR_FILE>
+					</buildArgs>
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>exemplo-webapp</finalName>
 	</build>
 </project>

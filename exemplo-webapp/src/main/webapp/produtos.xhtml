@@ -11,7 +11,13 @@
 		
 		<h1>Lista de Produtos</h1>
 
-		<h2>Olá, #{sessionScope.usuarioLogado}.</h2>
+		<h2>Olá, #{formLoginBean.usuarioLogado}.</h2>
+		
+		<h:form>
+		
+			<h:commandButton value="logout" action="#{formLoginBean.logout}" />
+		
+		</h:form>
 
 		<h:dataTable var="produto" value="#{produtoBean.produtos}">
 			<h:column>
