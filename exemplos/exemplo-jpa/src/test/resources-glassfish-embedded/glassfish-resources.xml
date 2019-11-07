@@ -1,0 +1,15 @@
+<!DOCTYPE resources PUBLIC
+        "-//GlassFish.org//DTD GlassFish Application Server 3.1 
+        Resource Definitions//EN"
+        "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+    <jdbc-resource pool-name="ArquillianEmbeddedPostgreSQLPool"
+                   jndi-name="jdbc/DACDataSource"/>
+    <jdbc-connection-pool name="ArquillianEmbeddedPostgreSQLPool"
+    					  res-type="javax.sql.DataSource"
+                          datasource-classname="org.postgresql.ds.PGSimpleDataSource">
+        <property name="user" value="postgres"/>
+        <property name="password" value="secret"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/exemplo-jpa"/>
+    </jdbc-connection-pool>
+</resources>
