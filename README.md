@@ -12,8 +12,9 @@
 ### Horários / Local
 
 * Horários:
-  - **Quartas (15:30-17:45)** - Lab. Inf. 4
-  - **Sextas (13:00-15:15)** - Lab.Inf.4
+  - **Quartas (07:00-08:30)** - Lab. Inf. 2
+  - **Quintas (09:30-11:00)** - Lab. Inf. 2
+  - **Sextas (07:00-09:15)** - Lab.Inf.2
 
 ## Comunicação
 
@@ -36,8 +37,8 @@ A nota final será computado através da média das avaliações:
 
 ### Bibliografia Básica
 
-* Burke, B. Enterprise Javabeans 3.0. Pearson, 2007. Derek, L. EJB3 Em Ação. Alta Books, 2008
+* Burke, B. Enterprise Javabeans 3.0. Pearson, 2007. Derek, L. EJB3 Em Ação. Alta Books, 2008
 
 ### Bibliografia Complementar
-* Schincariol, M. EJB3 Profissional: Java Persistence API. Ciência Moderna, 2008.
-* Gonçalves, E., Desenvolvendo Aplicações Web com JSP, Servlets, JavaServer Faces, Hibernate, EJB3 Persistence e Ajax. Ciência Moderna, 2007.
+* Schincariol, M. EJB3 Profissional: Java Persistence API. Ciência Moderna, 2008.
+* Gonçalves, E., Desenvolvendo Aplicações Web com JSP, Servlets, JavaServer Faces, Hibernate, EJB3 Persistence e Ajax. Ciência Moderna, 2007.
