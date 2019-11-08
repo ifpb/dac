@@ -1,11 +1,16 @@
 package br.com.edu.ifpb.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +29,18 @@ public class Pessoa implements Serializable {
 	
 	@Column(name = "idade")
 	private Integer idade;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Endereco endereco;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Telefone> telefones;
+	
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+	private List<Reserva> reservas;
+	
+	@ManyToMany
+	private List<Produto> produtosFavoritos;
 
 	public int getId() {
 		return id;
@@ -48,4 +65,37 @@ public class Pessoa implements Serializable {
 	public void setIdade(Integer idade) {
 		this.idade = idade;
 	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public List<Telefone> getTelefones() {
+		return telefones;
+	}
+
+	public void setTelefones(List<Telefone> telefones) {
+		this.telefones = telefones;
+	}
+
+	public List<Reserva> getReservas() {
+		return reservas;
+	}
+
+	public void setReservas(List<Reserva> reservas) {
+		this.reservas = reservas;
+	}
+
+	public List<Produto> getProdutosFavoritos() {
+		return produtosFavoritos;
+	}
+
+	public void setProdutosFavoritos(List<Produto> produtosFavoritos) {
+		this.produtosFavoritos = produtosFavoritos;
+	}
+	
 }
