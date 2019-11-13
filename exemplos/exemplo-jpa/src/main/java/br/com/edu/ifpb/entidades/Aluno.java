@@ -5,13 +5,16 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "alunos")
 public class Aluno implements Serializable {
 	
 	@Id
@@ -20,7 +23,7 @@ public class Aluno implements Serializable {
 	
 	private String nome;
 	
-	@OneToOne(mappedBy = "aluno", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "aluno", fetch = FetchType.EAGER, cascade=CascadeType.ALL )
 	private Matricula matricula;
 	
 	@ManyToOne

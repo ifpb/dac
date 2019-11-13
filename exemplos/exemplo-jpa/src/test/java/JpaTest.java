@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -101,7 +102,6 @@ public class JpaTest {
 	}
 	
 	@Test
-	@Ignore
 	public void salvarAluno() {
 		Aluno aluno = new Aluno();
 		aluno.setNome("José Carlos");
@@ -184,6 +184,7 @@ public class JpaTest {
 	}
 	
 	@Test
+	@Ignore
 	public void criarAlunoComTurmas() {
 		Turma turma = new Turma("DAC");
 		turmaDao.salvar(turma);
@@ -209,5 +210,23 @@ public class JpaTest {
 		alunoDao.salvar(aluno);
 		
 	}
+	
+	@Test
+	public void criarEventoComTag() {
+		Evento e1 = new Evento();
+		e1.setNome("Sertão Comp");
+		e1.setDescricao("Sertão Comp");
+		e1.setInscricao(50.00f);
+		e1.setTipo(TipoEvento.CONGRESSO);
+		e1.setData(new Date());
+		e1.setTags(Arrays.asList("computação", "sistemas", "análise de dados"));
+		eventoDAO.salvar(e1);
+	}
 
+	
+	
+	
+	
+	
+	
 }

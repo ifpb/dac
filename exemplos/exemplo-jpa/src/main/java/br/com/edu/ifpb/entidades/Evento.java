@@ -2,9 +2,10 @@ package br.com.edu.ifpb.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -45,7 +46,15 @@ public class Evento implements Serializable {
 	@Column(precision = 2)
 	private Float inscricao;
 	
+	@ElementCollection
+	private List<String> tags;
 	
+	public List<String> getTags() {
+		return tags;
+	}
+	public void setTags(List<String> tags) {
+		this.tags = tags;
+	}
 	public Integer getId() {
 		return id;
 	}
